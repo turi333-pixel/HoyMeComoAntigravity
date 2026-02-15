@@ -2,19 +2,24 @@ import { NextResponse } from 'next/server';
 import { searchRecipes } from '@/lib/api';
 
 export async function GET(request) {
-    const { searchParams } = new URL(request.url);
-
+    const searchParams = request.nextUrl.searchParams;
     const query = searchParams.get('query');
-    const diets = searchParams.getAll('diets'); // Use getAll for multiple values
-    const minProtein = searchParams.get('minProtein');
-    const maxCarbs = searchParams.get('maxCarbs');
-    const locale = searchParams.get('locale') || 'en';
+    const diets = searchParams.getAll('diets');
+
+    // Target Params
+    const targetProtein = searchParams.get('targetProtein');
+    const targetCarbs = searchParams.get('targetCarbs');
+    const targetFat = searchParams.get('targetFat');
+    const targetCalories = searchParams.get('targetCalories');
+    const locale = searchParams.get('locale');
 
     const data = await searchRecipes({
         query,
         diets,
-        minProtein,
-        maxCarbs,
+        targetProtein: targetProtein ? parseInt(targetProtein) : undefined,
+        targetCarbs: targetCarbs ? parseInt(targetCarbs) : undefined,
+        targetFat: targetFat ? parseInt(targetFat) : undefined,
+        targetCalories: targetCalories ? parseInt(targetCalories) : undefined,
         locale
     });
 

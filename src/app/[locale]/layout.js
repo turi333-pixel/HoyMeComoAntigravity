@@ -20,6 +20,8 @@ export const metadata = {
     description: "Find the perfect meal for your macros.",
 };
 
+import Header from "@/components/Header";
+
 export default async function LocaleLayout({
     children,
     params
@@ -31,6 +33,7 @@ export default async function LocaleLayout({
         <html lang={locale}>
             <body className={`${outfit.variable} ${inter.variable}`}>
                 <NextIntlClientProvider messages={messages}>
+                    <Header locale={locale} />
                     <main style={{ minHeight: '100vh', padding: '1rem' }}>
                         {children}
                     </main>

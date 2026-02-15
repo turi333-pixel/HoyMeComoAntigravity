@@ -27,8 +27,10 @@ export default function HomePage({ params: { locale } }) {
         setLoading(true);
         try {
             const queryParams = new URLSearchParams({
-                minProtein: macros.protein - 10, // approximate range
-                maxCarbs: macros.carbs + 10,
+                targetProtein: macros.protein,
+                targetCarbs: macros.carbs,
+                targetFat: macros.fat,
+                targetCalories: macros.calories,
                 locale: locale
             });
 

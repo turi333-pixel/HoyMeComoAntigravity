@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--color-bg);
+}
+
+.logo {
+    font-family: var(--font-outfit), sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.langLink {
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    color: var(--color-text-muted);
+    transition: all 0.2s;
+}
+
+.langLink:hover {
+    background: var(--color-bg);
+    color: var(--color-primary);
+}
+
+.active {
+    background: var(--color-primary);
+    color: white !important;
+}
